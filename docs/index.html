@@ -600,6 +600,79 @@
       font-size: 14px;
     }
 
+    .profile-card {
+      display: grid;
+      gap: 16px;
+      padding: 22px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(15, 20, 28, 0.9), rgba(12, 16, 23, 0.9));
+    }
+
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .profile-photo {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+    }
+
+    .avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: #02110c;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      box-shadow: 0 12px 30px rgba(95, 211, 243, 0.25);
+    }
+
+    .profile-meta h3 {
+      margin: 0;
+      font-size: 18px;
+      color: var(--ink);
+    }
+
+    .profile-meta span {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .role-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .role-list li {
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(95, 211, 243, 0.2);
+      background: rgba(12, 16, 23, 0.7);
+      color: var(--muted);
+      font-size: 14px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .role-list strong {
+      color: var(--ink);
+      font-size: 14px;
+    }
+
     .quote {
       padding: 16px 18px;
       border-left: 4px solid var(--warm);
@@ -668,15 +741,15 @@
         <div class="orbital"></div>
         <div class="step-header">
           <div class="step-number">01</div>
-          <div class="step-title">The Founder</div>
+          <div class="step-title">A Beginning Built On Trust</div>
         </div>
         <div class="step-body hero">
           <div>
-            <h1>Gaurav Poswal — building CredyFi to help first-time Indians invest with confidence</h1>
+            <h1>Gaurav Poswal — building CredyFi so the first step feels safe, not scary</h1>
             <p class="sub">
-              I’ve seen many young Indians delay investing because it feels complex or unsafe.
-              CredyFi exists to make that first step simple, honest, and guided — even when
-              you start with just ₹500.
+              I’ve met too many young Indians who want to invest but pause at the last moment
+              because it feels complex or unsafe. CredyFi exists to make that first step calm,
+              honest, and guided — even when you start with just ₹500.
             </p>
             <div class="rupee-badge">₹500 SIP friendly • First-time investor focus</div>
             <div class="badge-row">
@@ -708,15 +781,16 @@
       <section class="step">
         <div class="step-header">
           <div class="step-number">02</div>
-          <div class="step-title">Why CredyFi Exists</div>
+          <div class="step-title">Why This Matters</div>
         </div>
         <div class="step-body">
           <section class="accent-banner">
             <div>
-              <h2>Built For First-Time Investors</h2>
+              <h2>Built for the first honest step</h2>
               <p>
                 CredyFi is designed to feel clear, steady, and safe. Every screen is built for
-                someone investing for the first time, with small-ticket SIPs and simple guidance.
+                someone investing for the first time — with small-ticket SIPs and simple guidance,
+                so confidence grows naturally.
               </p>
               <div class="ticker-strip" style="margin-top:12px;">
                 <span>Trust > Hype</span>
@@ -732,10 +806,10 @@
             </div>
           </section>
           <section class="card">
-            <h2>Problem-first, not product-first</h2>
+            <h2>Trust comes before any product</h2>
             <p>
               The biggest barrier for first-time investors isn’t pricing or features — it’s trust.
-              People want a real person who explains things clearly, doesn’t push them, and stays
+              People want a real person who explains clearly, doesn’t push them, and stays
               responsible over time. CredyFi is built for that moment when someone wants to start,
               but needs reassurance more than a sales pitch.
             </p>
@@ -746,15 +820,15 @@
       <section class="step">
         <div class="step-header">
           <div class="step-number">03</div>
-          <div class="step-title">How It’s Built</div>
+          <div class="step-title">How We Keep It Honest</div>
         </div>
         <div class="step-body">
           <section class="tech-panel">
             <div>
-              <h2>Transparent, Technical, Accountable</h2>
+              <h2>Transparent, technical, accountable</h2>
               <p>
-                CredyFi is built like a product you can trust: clarity in language, safety in flow,
-                and a founder who stays accountable for every promise. We focus on safe first steps,
+                CredyFi is built like a product you can trust: clarity in language, safety in the flow,
+                and founders who stay accountable for every promise. We focus on safe first steps,
                 not hype.
               </p>
               <div class="divider"></div>
@@ -788,20 +862,20 @@
           </section>
           <section class="grid-2">
             <div class="card">
-              <h2>What I’m Focused On Now</h2>
+              <h2>Our focus right now</h2>
               <p>
-                CredyFi is my primary focus. I’m building it as a calm, education-first investing
+                CredyFi is our primary focus. We’re building it as a calm, education-first investing
                 platform for Young Bharat — people who want to start small, learn step by step,
                 and invest regularly with clarity.
               </p>
               <p style="margin-top:10px;">
-                Alongside CredyFi, I also work on LLM Audit (AI SEO visibility measurement) and
-                Soocel (influencer marketing). These are active projects, but CredyFi is where I’m
+                Alongside CredyFi, we also run LLM Audit (AI SEO visibility measurement) and
+                Soocel (influencer marketing). These are active projects, but CredyFi is where we’re
                 personally most committed.
               </p>
             </div>
             <div class="card">
-              <h2>Founder Belief</h2>
+              <h2>Founder belief</h2>
               <p class="quote">
                 “Trust is earned slowly. If we cannot explain something clearly, we should not sell it.
                 CredyFi will always choose clarity over hype.”
@@ -814,11 +888,11 @@
       <section class="step">
         <div class="step-header">
           <div class="step-number">04</div>
-          <div class="step-title">Proof Of Execution</div>
+          <div class="step-title">Proof We Can Execute</div>
         </div>
         <div class="step-body">
           <section class="card">
-            <h2>Trust Signals</h2>
+            <h2>Signals of execution</h2>
             <div class="signal-grid">
               <div class="metric">
                 <h3>₹50+ Cr</h3>
@@ -835,7 +909,7 @@
             </div>
           </section>
           <section class="card">
-            <h2>Execution That Builds Trust</h2>
+            <h2>Execution that builds trust</h2>
             <ul class="list">
               <li>Built an influencer marketing platform at Giantview, led a 20-member team, delivered campaigns for 50+ clients, and helped generate ₹50+ crore revenue in the first year.</li>
               <li>At JungleWorks, built a hyperlocal marketplace product, onboarded 100+ clients, and generated $35,000 MRR.</li>
@@ -847,27 +921,11 @@
       <section class="step">
         <div class="step-header">
           <div class="step-number">05</div>
-          <div class="step-title">Past Journey</div>
+          <div class="step-title">Gaurav’s Journey So Far</div>
         </div>
         <div class="step-body">
-          <section class="grid-2">
-            <div class="card">
-              <h2>Education</h2>
-              <p>MBA, IIM Visakhapatnam (Gold Medalist)</p>
-              <p>B.Tech in Information Technology</p>
-            </div>
-            <div class="card">
-              <h2>Core Strengths</h2>
-              <ul class="list">
-                <li>Product thinking that starts with user safety and long-term outcomes</li>
-                <li>Building simple experiences for people who are new to investing</li>
-                <li>Clear communication without jargon or pressure</li>
-                <li>Accountability to users, not just growth metrics</li>
-              </ul>
-            </div>
-          </section>
           <section class="card">
-            <h2>Founder Timeline</h2>
+            <h2>Gaurav’s journey</h2>
             <div class="timeline">
               <div class="timeline-item">
                 <strong>2023–Present — CredyFi</strong>
@@ -890,6 +948,8 @@
                 Product Manager; built a hyperlocal marketplace product, onboarded 100+ clients, and generated $35,000 MRR.
               </div>
             </div>
+            <div class="divider"></div>
+            <p>MBA, IIM Visakhapatnam (Gold Medalist). B.Tech in Information Technology.</p>
           </section>
         </div>
       </section>
@@ -897,15 +957,74 @@
       <section class="step">
         <div class="step-header">
           <div class="step-number">06</div>
-          <div class="step-title">Personal Commitment</div>
+          <div class="step-title">The Co-Founder Who Powers Growth</div>
+        </div>
+        <div class="step-body">
+          <section class="grid-2">
+            <div class="profile-card">
+              <div class="profile-header">
+                <img class="profile-photo" src="assets/abhishek-sonawane.jpg" alt="Abhishek Sonawane" />
+                <div class="profile-meta">
+                  <h3>Abhishek Sonawane</h3>
+                  <span>Co-Founder, CredyFi</span>
+                </div>
+              </div>
+              <p>
+                Focused on growth, education-led acquisition, and creating trust in underserved
+                markets. Works closely on content-first finance education for Bharat.
+              </p>
+              <ul class="role-list">
+                <li>
+                  <strong>CredyFi — Co-Founder (Jun 2023–Present)</strong>
+                  Driving content-led finance education for Bharat and financial inclusion in T2/T3 India. 1 lakh+ downloads.
+                </li>
+                <li>
+                  <strong>LLM Audit — Co-Founder (Jun 2025–Present)</strong>
+                  Driving user acquisition and revenue from AI answers; AI mentions/citations and Tech SEO/AEO.
+                </li>
+                <li>
+                  <strong>Soocel — Head of Growth (Jun 2023–Present)</strong>
+                  Helping brands execute marketing campaigns profitably via collaborations and influencer marketing.
+                </li>
+              </ul>
+            </div>
+            <div class="profile-card">
+              <h2>Experience & education</h2>
+              <ul class="role-list">
+                <li>
+                  <strong>Rizzle — Growth Manager (Jan 2023–May 2023)</strong>
+                  Helped businesses drive engagement using video solutions and AI-driven short format feeds.
+                </li>
+                <li>
+                  <strong>Agora — Growth (Apr 2021–Dec 2022)</strong>
+                  Helped brands grow using real-time engagement, live streaming, and audio/video calling solutions.
+                </li>
+                <li>
+                  <strong>IIM Visakhapatnam — MBA (2017–2019)</strong>
+                  Sales, Distribution, and Marketing Operations. Placement representative; National semi finalist in The Hindu & BLoC Boardroom Challenge 2017.
+                </li>
+                <li>
+                  <strong>Sinhgad College of Engineering — B.Tech (2011–2015)</strong>
+                  Electronics and Telecommunication.
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="step">
+        <div class="step-header">
+          <div class="step-number">07</div>
+          <div class="step-title">A Promise You Can Hold Us To</div>
         </div>
         <div class="step-body">
           <section class="commitment">
-            <h2>My Commitment to You</h2>
+            <h2>Our commitment to you</h2>
             <p>
               If you’re starting your investing journey, you deserve guidance you can trust.
               CredyFi is designed to feel personal, transparent, and calm — not salesy.
-              I take responsibility for how we communicate, how we educate, and how we earn your
+              We take responsibility for how we communicate, how we educate, and how we earn your
               trust over time.
             </p>
             <p class="footer-note">This page is meant to help you decide with clarity, not pressure.</p>
