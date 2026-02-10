@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CredyFi — Founder Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0d10;
+      --bg-2: #0d1117;
+      --card: #111721;
+      --card-2: #0f141c;
+      --ink: #f2f6fb;
+      --muted: #b7c0cc;
+      --line: #1c2432;
+      --accent: #42d392;
+      --accent-2: #5fd3f3;
+      --warm: #f5b36a;
+      --shadow: 0 22px 70px rgba(0, 0, 0, 0.55);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(66, 211, 146, 0.12), transparent 55%),
+        radial-gradient(900px 500px at 85% 20%, rgba(95, 211, 243, 0.14), transparent 55%),
+        linear-gradient(180deg, #0a0d10 0%, #0b1016 45%, #0d1117 100%);
+      color: var(--ink);
+      font-family: "Space Grotesk", system-ui, -apple-system, Segoe UI, sans-serif;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(transparent 0%, transparent 97%, rgba(255, 255, 255, 0.03) 100%),
+        linear-gradient(90deg, transparent 0%, transparent 97%, rgba(255, 255, 255, 0.03) 100%);
+      background-size: 34px 34px;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 80px;
+      display: grid;
+      gap: 28px;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      border-radius: 18px;
+      background: rgba(17, 23, 33, 0.6);
+      border: 1px solid rgba(28, 36, 50, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    .top-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .pill {
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: #a7b6c8;
+      border: 1px solid rgba(66, 211, 146, 0.25);
+      background: rgba(66, 211, 146, 0.08);
+    }
+
+    .signal {
+      font-size: 12px;
+      color: #8ea3ba;
+      letter-spacing: 0.3px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+      padding: 26px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(17, 23, 33, 0.92), rgba(13, 17, 23, 0.88));
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story {
+      display: grid;
+      gap: 24px;
+    }
+
+    .step {
+      position: relative;
+      display: grid;
+      gap: 16px;
+      padding: 28px;
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      background: rgba(14, 18, 26, 0.85);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .step::after {
+      content: "";
+      position: absolute;
+      inset: -40% auto auto -15%;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(66, 211, 146, 0.12), transparent 70%);
+      filter: blur(8px);
+      pointer-events: none;
+    }
+
+    .finance-grid {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(transparent 0%, transparent 92%, rgba(66, 211, 146, 0.08) 100%),
+        linear-gradient(90deg, transparent 0%, transparent 92%, rgba(66, 211, 146, 0.08) 100%);
+      background-size: 60px 60px;
+      opacity: 0.25;
+      pointer-events: none;
+    }
+
+    .ticker-strip {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: #9fb3c8;
+    }
+
+    .ticker-strip span {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(95, 211, 243, 0.2);
+      background: rgba(12, 16, 23, 0.6);
+    }
+
+    .chart-panel {
+      position: relative;
+      border-radius: 18px;
+      padding: 14px;
+      border: 1px solid rgba(66, 211, 146, 0.2);
+      background: rgba(12, 16, 23, 0.7);
+      overflow: hidden;
+    }
+
+    .chart-panel svg {
+      width: 100%;
+      height: 120px;
+      display: block;
+    }
+
+    .rupee-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 14px;
+      background: rgba(66, 211, 146, 0.12);
+      border: 1px solid rgba(66, 211, 146, 0.28);
+      color: #c9f5df;
+      font-size: 12px;
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .step-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: #04140f;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 10px 30px rgba(66, 211, 146, 0.35);
+    }
+
+    .step-title {
+      font-size: 18px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .step-body {
+      display: grid;
+      gap: 16px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: -40% 25% auto auto;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(66, 211, 146, 0.15), transparent 70%);
+      filter: blur(6px);
+      pointer-events: none;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: auto auto -35% -15%;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(95, 211, 243, 0.18), transparent 70%);
+      filter: blur(8px);
+      pointer-events: none;
+    }
+
+    .orbital {
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 1px dashed rgba(95, 211, 243, 0.3);
+      animation: slowSpin 18s linear infinite;
+      pointer-events: none;
+    }
+
+    .orbital::after {
+      content: "";
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 18px rgba(95, 211, 243, 0.6);
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+
+    .brand-logo {
+      width: auto;
+      height: 36px;
+      max-width: 120px;
+      border-radius: 10px;
+      object-fit: contain;
+      border: 1px solid var(--line);
+      background: #0b0f14;
+    }
+
+    h1 {
+      margin: 14px 0 12px;
+      font-family: "Fraunces", serif;
+      font-weight: 600;
+      font-size: 34px;
+      line-height: 1.15;
+    }
+
+    .sub {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .badge {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(66, 211, 146, 0.12);
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 12px;
+      border: 1px solid rgba(66, 211, 146, 0.35);
+    }
+
+    .founder-card {
+      background: linear-gradient(140deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .founder-image {
+      width: 100%;
+      border-radius: 18px;
+      height: auto;
+      max-height: 420px;
+      object-fit: contain;
+      object-position: center;
+      border: 1px solid var(--line);
+      background: #0b0f14;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+      animation: floatUp 900ms ease-out;
+    }
+
+    .founder-image-wrap {
+      position: relative;
+      border-radius: 20px;
+      padding: 6px;
+      background: linear-gradient(140deg, rgba(66, 211, 146, 0.25), rgba(95, 211, 243, 0.2), rgba(245, 179, 106, 0.2));
+    }
+
+    .founder-image-glow {
+      position: absolute;
+      inset: -18px;
+      border-radius: 28px;
+      background: radial-gradient(circle, rgba(66, 211, 146, 0.12), transparent 70%);
+      filter: blur(12px);
+      z-index: 0;
+    }
+
+    .founder-image-wrap img {
+      position: relative;
+      z-index: 1;
+    }
+
+    .trust-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .trust-list li {
+      display: grid;
+      grid-template-columns: 12px 1fr;
+      gap: 10px;
+      align-items: start;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-top: 6px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.32);
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      transition: transform 200ms ease;
+    }
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .metric {
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(95, 211, 243, 0.18);
+      background: rgba(15, 20, 28, 0.85);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+      color: var(--ink);
+    }
+
+    .metric span {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .metric::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 0%, rgba(95, 211, 243, 0.08) 50%, transparent 100%);
+      transform: translateX(-100%);
+      animation: sweep 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .tech-panel {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      padding: 22px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(95, 211, 243, 0.25);
+      background: linear-gradient(135deg, rgba(14, 18, 26, 0.9), rgba(12, 16, 23, 0.95));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tech-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='240' viewBox='0 0 600 240'%3E%3Cg fill='none' stroke='rgba(95,211,243,0.12)' stroke-width='1'%3E%3Cpath d='M10 20H160V80H260V40H360V120H520'/%3E%3Cpath d='M30 180H200V130H300V190H500'/%3E%3Ccircle cx='160' cy='80' r='4' fill='rgba(66,211,146,0.25)'/%3E%3Ccircle cx='260' cy='40' r='4' fill='rgba(66,211,146,0.25)'/%3E%3Ccircle cx='360' cy='120' r='4' fill='rgba(66,211,146,0.25)'/%3E%3Ccircle cx='300' cy='190' r='4' fill='rgba(66,211,146,0.25)'/%3E%3C/g%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right center;
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .status-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .status-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(95, 211, 243, 0.2);
+      background: rgba(12, 16, 23, 0.7);
+      color: #cfe8ff;
+      font-size: 13px;
+    }
+
+    .status-item span {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, rgba(95, 211, 243, 0.2), transparent);
+      margin: 10px 0;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(66, 211, 146, 0.2);
+      background: rgba(66, 211, 146, 0.06);
+      color: #b6ead1;
+      font-size: 12px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .timeline-item {
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(14, 18, 26, 0.7);
+      display: grid;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .timeline-item strong {
+      color: var(--ink);
+      font-size: 14px;
+    }
+
+    .accent-banner {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      padding: 22px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(66, 211, 146, 0.25);
+      background:
+        linear-gradient(140deg, rgba(66, 211, 146, 0.1), rgba(95, 211, 243, 0.08)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cpath d='M12 120C30 56 94 20 158 38C216 55 232 116 210 170C190 221 125 230 68 210C25 194 0 160 12 120Z' fill='rgba(255,255,255,0.04)'/%3E%3C/svg%3E");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .accent-banner h2 {
+      margin-bottom: 6px;
+    }
+
+    .security-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .security-item {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(245, 179, 106, 0.25);
+      background: rgba(245, 179, 106, 0.06);
+      color: #f2d5b5;
+      font-size: 13px;
+    }
+
+    .security-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--warm);
+      box-shadow: 0 0 10px rgba(245, 179, 106, 0.5);
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .list li {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: var(--card-2);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .quote {
+      padding: 16px 18px;
+      border-left: 4px solid var(--warm);
+      background: rgba(245, 179, 106, 0.08);
+      color: #f4d6b2;
+      border-radius: 12px;
+      font-style: italic;
+    }
+
+    .commitment {
+      display: grid;
+      gap: 8px;
+      padding: 24px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(95, 211, 243, 0.2);
+      background: linear-gradient(135deg, rgba(95, 211, 243, 0.08), rgba(66, 211, 146, 0.08));
+    }
+
+    .footer-note {
+      font-size: 12px;
+      color: #93a1b5;
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(14px); opacity: 0.6; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes slowSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes sweep {
+      0% { transform: translateX(-120%); }
+      50% { transform: translateX(120%); }
+      100% { transform: translateX(120%); }
+    }
+
+    @media (max-width: 900px) {
+      .hero, .grid-2 { grid-template-columns: 1fr; }
+      h1 { font-size: 30px; }
+      .signal-grid { grid-template-columns: repeat(2, 1fr); }
+      .accent-banner { grid-template-columns: 1fr; }
+      .tech-panel { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 520px) {
+      .signal-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="top-bar">
+      <div class="top-left">
+        <img class="brand-logo" src="assets/credyfi-logo.jpg" alt="CredyFi logo" />
+        <span class="signal">Founder Profile • CredyFi</span>
+      </div>
+      <span class="pill">Trust-first investing</span>
+    </section>
+
+    <section class="story">
+      <section class="step">
+        <div class="finance-grid"></div>
+        <div class="orbital"></div>
+        <div class="step-header">
+          <div class="step-number">01</div>
+          <div class="step-title">The Founder</div>
+        </div>
+        <div class="step-body hero">
+          <div>
+            <h1>Gaurav Poswal — building CredyFi to help first-time Indians invest with confidence</h1>
+            <p class="sub">
+              I’ve seen many young Indians delay investing because it feels complex or unsafe.
+              CredyFi exists to make that first step simple, honest, and guided — even when
+              you start with just ₹500.
+            </p>
+            <div class="rupee-badge">₹500 SIP friendly • First-time investor focus</div>
+            <div class="badge-row">
+              <span class="badge">Education-first</span>
+              <span class="badge">Long-term focus</span>
+              <span class="badge">Clear, calm guidance</span>
+            </div>
+            <div class="chips">
+              <span class="chip">Transparent SIP onboarding</span>
+              <span class="chip">Small-ticket friendly</span>
+              <span class="chip">No pressure, no hype</span>
+            </div>
+          </div>
+          <div class="founder-card">
+            <div class="founder-image-wrap">
+              <div class="founder-image-glow"></div>
+              <img class="founder-image" src="assets/gaurav-poswal.jpg" alt="Gaurav Poswal" />
+            </div>
+            <ul class="trust-list">
+              <li><span class="dot"></span>Clear explanations before any action</li>
+              <li><span class="dot"></span>No hype, no pressure, no shortcuts</li>
+              <li><span class="dot"></span>Accountable guidance for small-ticket SIPs</li>
+              <li><span class="dot"></span>Built for Young Bharat, not just power users</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="step">
+        <div class="step-header">
+          <div class="step-number">02</div>
+          <div class="step-title">Why CredyFi Exists</div>
+        </div>
+        <div class="step-body">
+          <section class="accent-banner">
+            <div>
+              <h2>Built For First-Time Investors</h2>
+              <p>
+                CredyFi is designed to feel clear, steady, and safe. Every screen is built for
+                someone investing for the first time, with small-ticket SIPs and simple guidance.
+              </p>
+              <div class="ticker-strip" style="margin-top:12px;">
+                <span>Trust > Hype</span>
+                <span>Clarity First</span>
+                <span>Small SIPs</span>
+                <span>Long-term</span>
+              </div>
+            </div>
+            <div class="security-grid">
+              <div class="security-item"><span class="security-dot"></span>Simple, step-by-step onboarding</div>
+              <div class="security-item"><span class="security-dot"></span>Transparent language, no hidden push</div>
+              <div class="security-item"><span class="security-dot"></span>Founder accountability on every promise</div>
+            </div>
+          </section>
+          <section class="card">
+            <h2>Problem-first, not product-first</h2>
+            <p>
+              The biggest barrier for first-time investors isn’t pricing or features — it’s trust.
+              People want a real person who explains things clearly, doesn’t push them, and stays
+              responsible over time. CredyFi is built for that moment when someone wants to start,
+              but needs reassurance more than a sales pitch.
+            </p>
+          </section>
+        </div>
+      </section>
+
+      <section class="step">
+        <div class="step-header">
+          <div class="step-number">03</div>
+          <div class="step-title">How It’s Built</div>
+        </div>
+        <div class="step-body">
+          <section class="tech-panel">
+            <div>
+              <h2>Transparent, Technical, Accountable</h2>
+              <p>
+                CredyFi is built like a product you can trust: clarity in language, safety in flow,
+                and a founder who stays accountable for every promise. We focus on safe first steps,
+                not hype.
+              </p>
+              <div class="divider"></div>
+              <div class="chips">
+                <span class="chip">Step-by-step SIP guidance</span>
+                <span class="chip">Risk explained in plain words</span>
+                <span class="chip">Founder-led transparency</span>
+              </div>
+            </div>
+            <div class="status-grid">
+              <div class="status-item">Guidance Mode <span>Active</span></div>
+              <div class="status-item">Clarity Checks <span>Always On</span></div>
+              <div class="status-item">Language Simplicity <span>Verified</span></div>
+              <div class="status-item">Long-Term Mindset <span>Default</span></div>
+            </div>
+          </section>
+          <section class="chart-panel">
+            <svg viewBox="0 0 600 140" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="lineGlow" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#42d392" stop-opacity="0.2"/>
+                  <stop offset="50%" stop-color="#5fd3f3" stop-opacity="0.9"/>
+                  <stop offset="100%" stop-color="#42d392" stop-opacity="0.2"/>
+                </linearGradient>
+              </defs>
+              <polyline fill="none" stroke="url(#lineGlow)" stroke-width="3"
+                points="10,110 60,95 110,100 160,80 210,86 260,60 310,70 360,40 410,55 460,35 510,45 590,25"/>
+              <circle cx="360" cy="40" r="5" fill="#42d392"/>
+              <circle cx="460" cy="35" r="5" fill="#5fd3f3"/>
+            </svg>
+          </section>
+          <section class="grid-2">
+            <div class="card">
+              <h2>What I’m Focused On Now</h2>
+              <p>
+                CredyFi is my primary focus. I’m building it as a calm, education-first investing
+                platform for Young Bharat — people who want to start small, learn step by step,
+                and invest regularly with clarity.
+              </p>
+              <p style="margin-top:10px;">
+                Alongside CredyFi, I also work on LLM Audit (AI SEO visibility measurement) and
+                Soocel (influencer marketing). These are active projects, but CredyFi is where I’m
+                personally most committed.
+              </p>
+            </div>
+            <div class="card">
+              <h2>Founder Belief</h2>
+              <p class="quote">
+                “Trust is earned slowly. If we cannot explain something clearly, we should not sell it.
+                CredyFi will always choose clarity over hype.”
+              </p>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="step">
+        <div class="step-header">
+          <div class="step-number">04</div>
+          <div class="step-title">Proof Of Execution</div>
+        </div>
+        <div class="step-body">
+          <section class="card">
+            <h2>Trust Signals</h2>
+            <div class="signal-grid">
+              <div class="metric">
+                <h3>₹50+ Cr</h3>
+                <span>Revenue delivered</span>
+              </div>
+              <div class="metric">
+                <h3>50+ Brands</h3>
+                <span>Campaigns executed</span>
+              </div>
+              <div class="metric">
+                <h3>100+ Clients</h3>
+                <span>Onboarded</span>
+              </div>
+            </div>
+          </section>
+          <section class="card">
+            <h2>Execution That Builds Trust</h2>
+            <ul class="list">
+              <li>Built an influencer marketing platform at Giantview, led a 20-member team, delivered campaigns for 50+ clients, and helped generate ₹50+ crore revenue in the first year.</li>
+              <li>At JungleWorks, built a hyperlocal marketplace product, onboarded 100+ clients, and generated $35,000 MRR.</li>
+            </ul>
+          </section>
+        </div>
+      </section>
+
+      <section class="step">
+        <div class="step-header">
+          <div class="step-number">05</div>
+          <div class="step-title">Past Journey</div>
+        </div>
+        <div class="step-body">
+          <section class="grid-2">
+            <div class="card">
+              <h2>Education</h2>
+              <p>MBA, IIM Visakhapatnam (Gold Medalist)</p>
+              <p>B.Tech in Information Technology</p>
+            </div>
+            <div class="card">
+              <h2>Core Strengths</h2>
+              <ul class="list">
+                <li>Product thinking that starts with user safety and long-term outcomes</li>
+                <li>Building simple experiences for people who are new to investing</li>
+                <li>Clear communication without jargon or pressure</li>
+                <li>Accountability to users, not just growth metrics</li>
+              </ul>
+            </div>
+          </section>
+          <section class="card">
+            <h2>Founder Timeline</h2>
+            <div class="timeline">
+              <div class="timeline-item">
+                <strong>2023–Present — CredyFi</strong>
+                Building a financial engagement and investing app for Young Bharat.
+              </div>
+              <div class="timeline-item">
+                <strong>2025–Present — LLM Audit</strong>
+                AI SEO platform measuring visibility across ChatGPT, Gemini, Perplexity, and other AI search engines.
+              </div>
+              <div class="timeline-item">
+                <strong>2021–Present — Soocel</strong>
+                Influencer marketing platform for creator-led campaigns.
+              </div>
+              <div class="timeline-item">
+                <strong>2019–2021 — Giantview Pvt. Ltd.</strong>
+                Senior Product Manager; built an influencer marketing platform from scratch, led a 20-member team, executed campaigns for 50+ clients, and helped generate ₹50+ crore revenue in the first year.
+              </div>
+              <div class="timeline-item">
+                <strong>2018–2019 — JungleWorks</strong>
+                Product Manager; built a hyperlocal marketplace product, onboarded 100+ clients, and generated $35,000 MRR.
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="step">
+        <div class="step-header">
+          <div class="step-number">06</div>
+          <div class="step-title">Personal Commitment</div>
+        </div>
+        <div class="step-body">
+          <section class="commitment">
+            <h2>My Commitment to You</h2>
+            <p>
+              If you’re starting your investing journey, you deserve guidance you can trust.
+              CredyFi is designed to feel personal, transparent, and calm — not salesy.
+              I take responsibility for how we communicate, how we educate, and how we earn your
+              trust over time.
+            </p>
+            <p class="footer-note">This page is meant to help you decide with clarity, not pressure.</p>
+          </section>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
